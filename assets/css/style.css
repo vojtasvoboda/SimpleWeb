@@ -1,0 +1,104 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* GLOBAL */
+.noscreen { display: none; }
+.reseter { float: none; clear: both; height: 1px; width: 100%; }
+.f-r { float: right }
+
+/* WRAPPER */
+#wrapper {
+    margin-top: 10px;
+    position: relative;
+}
+
+/* HEADER */
+#header {
+    margin: 0 0 10px;
+	position: relative;
+}
+#header #lang {
+	position: absolute;
+	top: 10px;
+	left: 180px;
+}
+
+/* CONTENT */
+
+/* ASIDE */
+#sidenav {
+    /* width: 180px; */
+}
+
+/* ASIDE */
+#navbar {
+    /* margin-top: 10px; */
+}
+
+/* NAVIGATION */
+#nav {
+    position: absolute;
+    top: 10px;
+    right: 0;
+}
+
+/* Responsive
+-------------------------------------------------- */
+
+/* Desktop large
+------------------------- */
+@media (min-width: 1200px) {
+  #sidenav {
+    width: 170px;
+  }
+  .affix {
+      width: 170px;
+  }
+}
+
+/* Desktop
+------------------------- */
+@media (min-width: 980px) and (max-width: 1200px){
+  #sidenav {
+      width: 140px;
+  }
+  .affix {
+      width: 140px;
+  }
+}
+
+/* Tablet to desktop
+------------------------- */
+@media (min-width: 768px) and (max-width: 980px) {
+  #sidenav {
+      width: 100px;
+  }
+  .affix {
+      width: 100px;
+  }
+}
+
+/* Tablet
+------------------------- */
+@media (max-width: 768px) {
+    #header {
+	margin-bottom: 65px;
+    }
+    #nav {
+	top: 70px;
+	left: 0;
+	width: auto;
+	height: auto;
+    }
+    #sidenav {
+	width: 165px;
+    }
+}
+
+/* Landscape phones
+------------------------- */
+@media (max-width: 480px) {
+
+}
+
+/* End of CSS Document */
