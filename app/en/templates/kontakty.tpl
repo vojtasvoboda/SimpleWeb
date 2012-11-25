@@ -2,32 +2,32 @@
 
     <h1>{$data.title}</h1>
 
-    <p>Contacts text</p>
-	
+	<p>Contacts text</p>
+
 	<div class="reseter"></div>
 	<br />
 
 	<h2 id="form">Contact form</h2>
 
-    {if $error}
+	{if $error}
 	<p class="alert alert-error"><strong>Pozor!</strong> Pro odeslání formuláře je potřeba vyplnit všechna políčka označená hvězdičkou!
 		<button type="button" class="close" data-dismiss="alert">×</button>
 	</p>
-    {/if}
+	{/if}
 
-    {if $error_email}
+	{if $error_email}
 	<p class="alert alert-error">
 		<strong>Pozor!</strong> Vámi zadaný email má špatný tvar!
 		<button type="button" class="close" data-dismiss="alert">×</button>
 	</p>
-    {/if}
-	
-    {if $ok}
+	{/if}
+
+	{if $ok}
 	<p class="alert alert-success">
 		Zpráva byla úspěšně odeslána!
 		<button type="button" class="close" data-dismiss="alert">×</button>
 	</p>
-    {/if}
+	{/if}
 
 	<form action="#form" method="post">
 		<table>
