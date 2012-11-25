@@ -6,4 +6,4 @@ $data["keywords"] = "Homepage";
 $data["description"] = "Homepage";
 $smarty->assign('data', $data);
 
-display_all("uvod");
+display_all($request_url[0]);

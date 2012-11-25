@@ -42,6 +42,7 @@ $page = "uvod";
 
 // concrete page
 if (!empty($request_url[0])) $page = $request_url[0];
+else $request_url[0] = $page;
 
 // display concrete page
 if (file_exists(APP_DIR . "/$lang/$page.php")) {
