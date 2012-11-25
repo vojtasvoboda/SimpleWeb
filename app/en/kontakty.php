@@ -9,7 +9,7 @@ $smarty->assign('data', $data);
 use Nette\Forms\Form;
 
 /* contact form settings */
-$email = "info@dominique-glamour.com";
+$email = "info@your-domain.com";
 $subject = "Zpráva ze stránek " . $_SERVER["SERVER_NAME"];
 
 /* build form */
