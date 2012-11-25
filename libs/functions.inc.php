@@ -103,14 +103,13 @@ function odkaz_rewrite($tpl_source, &$smarty) {
  * @param unknown_type $text
  * @param unknown_type $komu
  */
-function send_mail($predmet, $text, $komu = "vojta@freshservices.cz") {
+function send_mail($predmet, $text, $komu = "vojtasvoboda.cz@gmail.com") {
 	$odkaz_rewrite = $GLOBALS["odkaz_rewrite"];
-	$cfg = $GLOBALS["cfg"];
 	// připravíme e-mail
 	$headers = "MIME-Versin: 1.0\r\n" .
 			"Content-type: text/plain; charset=utf-8; format=flowed\r\n" .
 			"Content-Transfer-Encoding: 8bit\r\n" .
-			"From: info@" . $cfg["url"];
+			"From: info@" . $_SERVER["SERVER_NAME"];
 	$predmet = "=?utf-8?B?" . base64_encode($predmet) . "?=";
 
 	// pokud jsme na localhostu, tak pouze zobrazíme e-mail, neodešleme

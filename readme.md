@@ -1,7 +1,7 @@
 SimpleWeb
 ===============
 
-Simple Web based on Smarty template engine and Nette framework libraries (debugger and autoloader).
+Simple Web based on Smarty template engine, Nette framework libraries (debugger and autoloader) and Twitter Bootstrap front-end framework.
 
 Requirements
 ------------

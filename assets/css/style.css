@@ -5,6 +5,9 @@
 .noscreen { display: none; }
 .reseter { float: none; clear: both; height: 1px; width: 100%; }
 .f-r { float: right }
+.ok { background: #b1f7b6; border: 1px solid #009966; padding: 10px; margin: 0 0 10px; }
+.error { background: #fdd; border: 1px solid #faa; padding: 10px; margin: 0 0 10px; color: red; }
+ul.error li { margin: 0 0 0 20px; }
 
 /* WRAPPER */
 #wrapper {
