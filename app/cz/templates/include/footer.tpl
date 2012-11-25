@@ -9,6 +9,7 @@
 					<ul class="nav">
 						<li><a href="/">Úvod</a></li>
 						<li><a href="/textova/">Textová</a></li>
+						<li><a href="/formular/">Objednávka</a></li>
 						<li><a href="/galerie/">Galerie</a></li>
 						<li><a href="/kontakty/">Kontakty</a></li>
 					</ul>

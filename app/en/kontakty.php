@@ -5,55 +5,50 @@ $data["keywords"] = "Contacts";
 $data["description"] = "Contacts";
 $smarty->assign('data', $data);
 
-/* Text ktery bude v predmetu odeslaneho emailu */
-$predmet = "Message from pages " . $_SERVER["SERVER_NAME"];
+/*---- CONTACT FORM -----*/
+use Nette\Forms\Form;
 
-/* Message recipient */
-$adresat = "vojtasvoboda.cz@gmail.com";
+/* contact form settings */
+$email = "info@dominique-glamour.com";
+$subject = "Zpráva ze stránek " . $_SERVER["SERVER_NAME"];
 
-// kontaktni formular
-$error = false;
-$error_email = false;
-$error_empty = false;
-$ok = false;
+/* build form */
+$form = new Form();
+$form->addText("jmeno", "Your name:", 60, 240)
+		->setRequired('Please fill your name');
+$form->addText("telefon", "Phone:", 60, 240);
+$form->addText("email", "E-mail:", 60, 240)
+		->addRule(Form::EMAIL, "E-mail have wrong format.")
+		->setRequired('Please fill your e-mail.');
+$form->addTextArea("poznamka", "Note:");
+$form->addSubmit('submit', 'Send message')
+	->setAttribute("class", "btn btn-primary");
+$smarty->assign("form", $form);
 
-if (!empty($_POST["submit"])) {
+/* form is submitted */
+if ($form->isSubmitted()) {
 
-	// kontrola emailu
-	if (!check_email($_POST["email"])) {
-		$error = true;
-		$error_email = true;
-	}
+	// my own validation
+	// $form->addError("Moje vlastní kontrola.");
+	
+	// form is ok
+	if ($form->isSuccess()) {
 
-	// kontrola povinnych
-	$povinne = array("jmeno", "email");
-	foreach ($povinne as $item) {
-		if (empty($_POST[$item])) {
-			$error = true;
-			$error_empty = true;
-		}
-	}
-
-	// pokud nebyla chyba
-	if (!$error) {
-		// sestavime text
-		$text = "Dobrý den,\n";
-		$text .= "z webových stránek " . $_SERVER["SERVER_NAME"] . " Vám byla zaslána tato zpráva:\n\n";
-		foreach ($_POST as $key => $value) {
-			$value = htmlspecialchars($value);
-			$text .= $key . ": " . $value . "\n";
+		// get values from form
+		$values = $form->getValues($asArray = true);
+		$text = "";
+		foreach ($values as $key => $value) {
+			$text .= $form[$key]->caption . " " . $value . "\n";
 		}
 
-		// odesleme email
-		send_mail($predmet, $text, $adresat);
-		$ok = true;
+		// send e-mail
+		send_mail($subject, $text, $email);
+
+		// 303 redirect, prevent multiple send
+		header("Location: /en/kontakty/?sent=1", TRUE, 303);
+		exit;
 	}
 }
 
-$smarty->assign("error", $error);
-$smarty->assign("ok", $ok);
-$smarty->assign("error_email", $error_email);
-$smarty->assign("error_empty", $error_empty);
-
-// zobrazíme šablonu
+// display template
 display_all($request_url[0]);

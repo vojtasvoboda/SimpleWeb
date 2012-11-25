@@ -5,55 +5,50 @@ $data["keywords"] = "Kontakty";
 $data["description"] = "Kontakty";
 $smarty->assign('data', $data);
 
-// předmět e-mailu
-$predmet = "Zpráva ze stránek " . $_SERVER["SERVER_NAME"];
+/*---- CONTACT FORM -----*/
+use Nette\Forms\Form;
 
-// adresat
-$adresat = "vojtasvoboda.cz@gmail.com";
+/* contact form settings */
+$email = "vojtasvoboda.cz@gmail.com";
+$subject = "Zpráva ze stránek " . $_SERVER["SERVER_NAME"];
 
-// init
-$error = false;
-$error_email = false;
-$error_empty = false;
-$ok = false;
+/* build form */
+$form = new Form();
+$form->addText("jmeno", "Vaše jméno:", 60, 240)
+	->setRequired('Zadejte prosím Vaše jméno');
+$form->addText("telefon", "Telefon:", 60, 240);
+$form->addText("email", "E-mail:", 60, 240)
+	->addRule(Form::EMAIL, "Špatný formát e-mailu!")
+	->setRequired('Zadejte prosím Váš e-mail');
+$form->addTextArea("poznamka", "Poznámka:");
+$form->addSubmit('submit', 'Odeslat zprávu')
+	->setAttribute("class", "btn btn-primary");
+$smarty->assign("form", $form);
 
-if (!empty($_POST["submit"])) {
+/* form is submitted */
+if ($form->isSubmitted()) {
 
-	// kontrola emailu
-	if (!check_email($_POST["email"])) {
-		$error = true;
-		$error_email = true;
-	}
+	// my own validation
+	// $form->addError("Moje vlastní kontrola.");
+	
+	// form is ok
+	if ($form->isSuccess()) {
 
-	// kontrola povinnych
-	$povinne = array("jmeno", "email");
-	foreach ($povinne as $item) {
-		if (empty($_POST[$item])) {
-			$error = true;
-			$error_empty = true;
-		}
-	}
-
-	// pokud nebyla chyba
-	if (!$error) {
-		// sestavime text
-		$text = "Dobrý den,\n";
-		$text .= "z webových stránek " . $_SERVER["SERVER_NAME"] . " Vám byla zaslána tato zpráva:\n\n";
-		foreach ($_POST as $key => $value) {
-			$value = htmlspecialchars($value);
-			$text .= $key . ": " . $value . "\n";
+		// get values from form
+		$values = $form->getValues($asArray = true);
+		$text = "";
+		foreach ($values as $key => $value) {
+			$text .= $form[$key]->caption . " " . $value . "\n";
 		}
 
-		// odesleme email
-		send_mail($predmet, $text, $adresat);
-		$ok = true;
+		// send e-mail
+		send_mail($subject, $text, $email);
+
+		// 303 redirect, prevent multiple send
+		header("Location: /kontakty/?sent=1", TRUE, 303);
+		exit;
 	}
 }
 
-$smarty->assign("error", $error);
-$smarty->assign("ok", $ok);
-$smarty->assign("error_email", $error_email);
-$smarty->assign("error_empty", $error_empty);
-
-// zobrazíme šablonu
+// display template
 display_all($request_url[0]);
