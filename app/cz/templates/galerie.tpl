@@ -7,7 +7,9 @@
 	
 	<div class="galerie">
 		{foreach from=$images item=i}
-		<img src="/assets/img/colorbox/{$i}" alt="{$i}" />
+		<a href="/assets/img/colorbox/{$i}" rel="lightbox">
+			<img src="/assets/img/colorbox/{$i}" alt="{$i}" />
+		</a>
 		{/foreach}
 	</div>
 	
