@@ -1,6 +1,6 @@
 <?php
 
-namespace SimpleSmartyWeb;
+namespace SimpleWeb;
 
 /**
  * Class for working with Forms

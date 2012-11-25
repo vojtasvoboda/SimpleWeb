@@ -28,7 +28,7 @@ $smarty->assign("cfg", $cfg);
 $smarty->assign("odkaz_rewrite", $odkaz_rewrite);
 
 // router
-$router = new SimpleSmartyWeb\Router($_SERVER["REQUEST_URI"], $cfg);
+$router = new SimpleWeb\Router($_SERVER["REQUEST_URI"], $cfg);
 
 // get URL as array (without language)
 $request_url = $router->getRequestArray();

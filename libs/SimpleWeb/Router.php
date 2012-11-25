@@ -1,6 +1,6 @@
 <?php
 
-namespace SimpleSmartyWeb;
+namespace SimpleWeb;
 
 /**
  * Router class for parse URL

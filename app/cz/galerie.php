@@ -7,7 +7,7 @@ $data["description"] = "Galerie";
 $smarty->assign('data', $data);
 
 // read images
-$files = new SimpleSmartyWeb\FileManager();
+$files = new SimpleWeb\FileManager();
 $folder = "./assets/img/colorbox";
 $onlyImages = true;
 $images = $files->getFolderFiles($folder, $onlyImages);

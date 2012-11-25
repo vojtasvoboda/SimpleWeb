@@ -1,6 +1,6 @@
 <?php
 
-namespace SimpleSmartyWeb;
+namespace SimpleWeb;
 
 /**
  * FileManaer class for working with files
