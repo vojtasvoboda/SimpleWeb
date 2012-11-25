@@ -1,7 +1,7 @@
 <!doctype html>
 <html class="no-js" lang="cs">
 
-    <head>
+	<head>
 		<meta charset="utf-8">
 		<title>{$cfg.title} &#124; {$data.title}</title>
 
@@ -15,16 +15,18 @@
 
 		<link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="/assets/css/bootstrap-responsive.min.css" />
+		<link rel="stylesheet" href="/assets/css/colorbox.min.css" />
 		<link rel="stylesheet" href="/assets/css/style.css" />
 
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 		<script src="/assets/js/modernizr-2.6.2.min.js"></script>
 		<script src="/assets/js/bootstrap.min.js"></script>
+		<script src="/assets/js/jquery.colorbox.min.js"></script>
 		<script src="/assets/js/scripts.js"></script>
 
-    </head>
+	</head>
 
-    <body>
+	<body>
 		<div id="wrapper" class="container">
 
 			<header id="header" class="row">

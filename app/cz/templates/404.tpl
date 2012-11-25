@@ -4,8 +4,8 @@
 <h2>Můžete zkusit následující možnosti:</h2>
 <ul>
 	<li>Pokud jste adresu zadávali ručně, zkontrolujte, zda jste neudělali chybu, či překlep.</li>
-	<li>Přejít na <a href="http://{$data.url}/" class="error">úvodní stránku prezentace</a>.</li>
+	<li>Přejít na <a href="http://{$cfg.url}/">úvodní stránku prezentace</a>.</li>
 	<li>Zvolit si požadovanou stránku z horního menu.</li>
-	<li>Přejít zpět na <a href="javascript:history.back()" class="error">předchozí stránku</a>.</li>
-	<li>V případě, že jste se na tuto stránku dostali odkazem z internetu (z jiné webové stránky), <a href="mailto:office@freshservices.cz?subject=Informace o nefunkcni strance na webu {$data.url}" class="error">prosím informujte nás o tom</a>.</li>
+	<li>Přejít zpět na <a href="javascript:history.back()">předchozí stránku</a>.</li>
+	<li>V případě, že jste se na tuto stránku dostali odkazem z internetu (z jiné webové stránky), <a href="mailto:info@vojtasvoboda.cz?subject=Informace o nefunkcni strance na webu {$cfg.url}">prosím informujte nás o tom</a>.</li>
 </ul>

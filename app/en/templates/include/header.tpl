@@ -1,7 +1,7 @@
 <!doctype html>
 <html class="no-js" lang="en">
 
-    <head>
+	<head>
 		<meta charset="utf-8">
 		<title>{$cfg.title} &#124; {$data.title}</title>
 
@@ -15,20 +15,18 @@
 
 		<link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="/assets/css/bootstrap-responsive.min.css" />
+		<link rel="stylesheet" href="/assets/css/colorbox.min.css" />
 		<link rel="stylesheet" href="/assets/css/style.css" />
-
-		<!--[if IE ]>
-		<link rel="stylesheet" href="css/onlyie.css" type="text/css" media="screen,projection,tv" />
-		<![endif]-->
 
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 		<script src="/assets/js/modernizr-2.6.2.min.js"></script>
 		<script src="/assets/js/bootstrap.min.js"></script>
+		<script src="/assets/js/jquery.colorbox.min.js"></script>
 		<script src="/assets/js/scripts.js"></script>
 
-    </head>
+	</head>
 
-    <body>
+	<body>
 		<div id="wrapper" class="container">
 
 			<header id="header" class="row">
@@ -38,7 +36,7 @@
 					<a href="#content" title="Přejít na obsah">Přejít na obsah</a>
 				</p>
 				<div id="homepage">
-					<a href="/en/" title="Přejít na domovskou stránku" rel="home">
+					<a href="/en/" title="Go to homepage" rel="home">
 						<img src="http://www.placehold.it/160x50" class="img-polaroid" />
 					</a>
 				</div>
