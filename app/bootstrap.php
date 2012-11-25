@@ -9,7 +9,7 @@ $loader->register();
 // debugger
 use Nette\Diagnostics\Debugger;
 Debugger::enable(/* Debugger::DEVELOPMENT */);
-Debugger::$email = empty($cfg["email"]) ? "vojta@freshservices.cz" : $cfg["email"];
+Debugger::$email = empty($cfg["admin"]) ? "info@" . $_SERVER["SERVER_NAME"] : $cfg["admin"];
 Debugger::$logDirectory = "/" . LOG_DIR;
 
 // $odkaz_rewrite - localhost path

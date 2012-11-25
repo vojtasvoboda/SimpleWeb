@@ -4,7 +4,7 @@
 $cfg = array();
 $cfg["url"] = ltrim($_SERVER["SERVER_NAME"], "w.");
 $cfg["title"] = "SimpleSmartyWeb";
-$cfg["email"] = "vojtasvoboda.cz@gmail.com";
+$cfg["admin"] = "admin@your-site.com";
 
 // mutace
 $cfg["languages_default"] = "cz";
