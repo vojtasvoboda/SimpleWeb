@@ -1,18 +1,18 @@
-!function ($) {
+$(document).ready(function(){
 
-  $(function(){
+	/* photos lazyload */
+	$(".galerie img").lazyload({
+		threshold : 200
+	});
 
-    var $window = $(window)
+	/* colorbox */
+	$("a[rel^='lightbox']").colorbox();
 
-    // Disable certain links in docs
-    $('section [href^=#]').click(function (e) {
-      e.preventDefault()
-    })
+	/* skryti non-js */
+	$(".non-js").each(function (i) {
+		$(this).css({
+			'display': 'none'
+		});
+	});
 
-    // side bar
-    $('#sidenav').affix()
-
-
-  })
-
-}(window.jQuery)
+});
