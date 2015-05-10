@@ -19,7 +19,7 @@
 			<hr />
 
 			<footer id="footer">
-				<p>Copyright &copy; 2012 <a href="/">SimpleWeb!</a></p>
+				<p>Copyright &copy; {$smarty.now|date_format:'%Y'} <a href="/">SimpleWeb!</a></p>
 			</footer><!-- /footer -->    
 
 	</div><!-- /#wrapper -->

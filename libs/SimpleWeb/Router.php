@@ -39,8 +39,8 @@ class Router {
 
 	/**
 	 * Get URL as array
-	 * @param type $url
-	 * @return type
+	 *
+	 * @return array
 	 */
 	public function getRequestArray() {
 		return $this->request_url;
@@ -48,7 +48,8 @@ class Router {
 
 	/**
 	 * Return active language
-	 * @return type
+	 *
+	 * @return string
 	 */
 	public function getActiveLanguage() {
 		return $this->active_language;
@@ -56,8 +57,10 @@ class Router {
 
 	/**
 	 * Get active language
-	 * @param type $valid_languages
-	 * @return type
+	 *
+	 * @param string $request_url
+	 *
+	 * @return string
 	 */
 	private function parseActiveLanguage($request_url) {
 		// pokud je první parametr mutace, tak jí vrátíme
@@ -67,13 +70,17 @@ class Router {
 				return $request_url[0];
 			}
 		}
+
 		// jinak vrátíme defaultní mutaci
 		return $this->default_language;
 	}
 
 	/**
 	 * Get array from URL
-	 * @return type
+	 *
+	 * @param string $url
+	 *
+	 * @return array
 	 */
 	private function parseUrl($url) {
 		// globally :-(
@@ -89,6 +96,7 @@ class Router {
 		$vyraz = '~^/(.*)/$~i';
 		// odstranění prvního a posledního lomítka
 		$url = preg_replace($vyraz, '\\1', $url);
+
 		return explode("/", $url);
 	}
 	

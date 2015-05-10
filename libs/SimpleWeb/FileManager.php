@@ -10,8 +10,12 @@ namespace SimpleWeb;
 class FileManager {
 
 	/**
-	 * Vrátí všechny soubory ve složce
-	 * @param unknown_type $folder
+	 * Get all files in folder
+	 *
+	 * @param string $folder
+	 * @param bool $onlyImages
+	 *
+	 * @return mixed
 	 */
 	function getFolderFiles($folder, $onlyImages = false) {
 		// return empty if is not a dir
@@ -33,20 +37,24 @@ class FileManager {
 		}
 		closedir($dir);
 		sort($files);
+
 		return $files;
 	}
 
 	/**
-	 * Vrati vsechny slozky
-	 * @param unknown_type $folder
+	 * Get all folders
+	 *
+	 * @param string $folder
+	 * @param array $skip
+	 *
+	 * @return array
 	 */
-	function getFolders($folder) {
+	function getFolders($folder, $skip = array('.', '..') ) {
 		// return empty if is not a dir
 		if (!is_dir($folder)) return array();
 		// read directories
 		$slozky = array();
 		$adresar = opendir($folder);
-		$skip_soubory = array(".", "..");
 		if ($adresar) {
 			while ($jmenosouboru = readdir($adresar)) {
 				if (is_dir($folder . "/" . $jmenosouboru) AND
@@ -56,23 +64,33 @@ class FileManager {
 			}
 		}
 		closedir($adresar);
+
 		return $slozky;
 	}
 
 	/**
-	 * Funkce overi, ze je soubor obrazek
+	 * Returns if file is image
+	 *
+	 * @param type $image
+	 *
+	 * @return bool
 	 */
 	public function isImage($image) {
 		$allowedExtensions = array('jpg', 'jpeg', 'png', 'gif');
 		$pathinfo = pathinfo($image);
 		$ext = $pathinfo['extension'];
+
 		return in_array(strtolower($ext), $allowedExtensions);
 	}
 
 	/**
 	 * Save content to file
+	 *
 	 * @param Url $path
 	 * @param String $content
+	 * @param $mode
+	 *
+	 * @return bool
 	 */
 	public function saveToFile($path, $content, $mode = "w") {
 		// $content = iconv("UTF-8", "Windows-1250//IGNORE", $content);
@@ -85,6 +103,7 @@ class FileManager {
 			// log_to_file("File", "saveToFile", "Nepodařilo se uložit soubor " . $path);
 			return false;
 		}
+
 		return true;
 	}
 
