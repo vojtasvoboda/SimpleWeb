@@ -9,12 +9,13 @@ define('CONFIG_DIR', APP_DIR . '/config');
 define('LIBS_DIR', WWW_DIR . '/libs');
 define('LOG_DIR', WWW_DIR . '/log');
 define('TEMP_DIR', WWW_DIR . '/temp');
+define("VENDOR_DIR", WWW_DIR . '/vendor');
 
 // start session
 session_start();
 
 // load Nette framework
-require_once LIBS_DIR . "/Nette/nette.min.php";
+require_once VENDOR_DIR . "/autoload.php";
 
 // require functions
 require_once LIBS_DIR . "/functions.inc.php";

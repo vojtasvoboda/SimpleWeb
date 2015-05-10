@@ -1,0 +1,15 @@
+{
+    "name": "VojtaSvoboda/SimpleWeb",
+    "require": {
+        "tracy/tracy": "~2.3",
+        "smarty/smarty": "~2.6",
+        "nette/robot-loader": "~2.3",
+        "nette/forms": "~2.3"
+    },
+    "authors": [
+        {
+            "name": "Vojta Svoboda",
+            "email": "vojtasvoboda.cz@gmail.com"
+        }
+    ]
+}
